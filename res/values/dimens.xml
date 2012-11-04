@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="thin">10dip</dimen>
+    <dimen name="fat">1in</dimen>
+</resources>

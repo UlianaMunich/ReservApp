@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#961F39"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00"
+        android:orientation="vertical" >
+
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    style="android:tapWidgetStyle"
+                    android:layout_width="318dp"
+                    android:layout_height="wrap_content" >
+
+                </TabWidget>
+
+                <LinearLayout
+                    android:id="@+id/Reservation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:id="@+id/MyList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/Settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:scrollHorizontally="false"
+        android:text="Find nearest Restaurants"
+        android:textStyle="normal" />
+
+</LinearLayout>
