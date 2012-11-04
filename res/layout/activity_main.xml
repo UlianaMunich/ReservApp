@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#961F39"
@@ -8,13 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center" >
+        android:gravity="center"
+        android:orientation="vertical" >
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="281dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.00"
         android:orientation="vertical" >
 
@@ -33,7 +34,6 @@
                     style="android:tapWidgetStyle"
                     android:layout_width="318dp"
                     android:layout_height="wrap_content" >
-
                 </TabWidget>
 
                 <LinearLayout
@@ -51,7 +51,6 @@
                         android:id="@+id/MyList"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" >
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -62,15 +61,36 @@
                 </FrameLayout>
             </LinearLayout>
         </TabHost>
-
     </LinearLayout>
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_width="286dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:paddingLeft="25dip"
+        android:paddingRight="25dip"
         android:scrollHorizontally="false"
-        android:text="Find nearest Restaurants"
+        android:text="@string/button1"
         android:textStyle="normal" />
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="275dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:paddingLeft="25dip"
+        android:paddingRight="25dip"
+        android:text="@string/button2" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/spiner1"
+        android:dropDownSelector="@string/spiner1"
+        android:focusableInTouchMode="true"
+        android:scrollbars="horizontal" />
 
 </LinearLayout>
