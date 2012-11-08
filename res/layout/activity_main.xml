@@ -7,13 +7,6 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="281dp"
         android:layout_height="0dip"
         android:layout_weight="0.00"
@@ -36,11 +29,7 @@
                     android:layout_height="wrap_content" >
                 </TabWidget>
 
-                <LinearLayout
-                    android:id="@+id/Reservation"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </LinearLayout>
+
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
@@ -73,20 +62,19 @@
         android:scrollHorizontally="false"
         android:text="@string/button1"
         android:textStyle="normal" />
-
+    
     <Button
         android:id="@+id/Button1"
-        android:layout_width="275dp"
-        android:layout_height="65dp"
+        android:layout_width="275dip"
+        android:layout_height="65dip"       
         android:layout_gravity="center"
         android:paddingLeft="25dip"
         android:paddingRight="25dip"
         android:text="@string/button2" />
 
     <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="282dp"
-        android:layout_height="48dp"
+        android:id="@+id/spinner11111"
+        android:layout_width="282dip"
         android:layout_gravity="center"
         android:contentDescription="@string/spiner1"
         android:dropDownSelector="@string/spiner1"
