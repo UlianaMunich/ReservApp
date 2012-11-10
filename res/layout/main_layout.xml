@@ -1,7 +1,27 @@
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
+        
+        
+            <Button
+        android:id="@+id/button1"
+        android:layout_width="275dip"
+        android:layout_height="65dip"       
+        android:layout_gravity="center"
+        android:paddingLeft="25dip"
+        android:paddingRight="25dip"
+        android:text="@string/button1" />
+            
+<!-- dimakuv: Spinner needs to specify android:layout_height, so I added it -->            
+    <Spinner
+        android:id="@+id/spinner1"
+         android:layout_width="282dip"
+         android:layout_height="45dip"
+        android:layout_gravity="center"
+        android:contentDescription="@string/spiner1"
+        android:dropDownSelector="@string/spiner1"
+        android:focusableInTouchMode="true"
+        android:scrollbars="horizontal" /> 
 
     </LinearLayout>
