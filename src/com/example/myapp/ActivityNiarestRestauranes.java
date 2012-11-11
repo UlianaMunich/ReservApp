@@ -8,7 +8,7 @@ public class ActivityNiarestRestauranes extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
+        setContentView(R.layout.button_nearest_restaurants);
     }
 
 }

@@ -6,4 +6,12 @@
     <string name="button1">Nearby restaurants</string>
     <string name="button2">Country</string>
     <string name="spiner1">Dresden</string>
+    <string name="favourites">Favourite</string>
+    <string name="profile">Profile</string>
+    <string name="about">About</string>
+    <string name="update">Update</string>
+    <string name="exit">Exit</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_list_restaurants">ListRestaurants</string>
+
 </resources>

@@ -2,9 +2,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-        
-        
-            <Button
+    
+     <Button
         android:id="@+id/button1"
         android:layout_width="275dip"
         android:layout_height="65dip"       
