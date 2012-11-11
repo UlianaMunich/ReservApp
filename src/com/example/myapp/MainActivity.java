@@ -119,16 +119,16 @@ public class MainActivity extends Activity
        saveButton.setOnClickListener(new View.OnClickListener() {						
     	   	@Override
 			public void onClick(View v) {
-				Intent contactsIntent = new Intent(MainActivity.this,ActivityNiarestRestauranes.class);
+				Intent contactsIntent = new Intent(MainActivity.this,ListRestaurants.class);
 	        	startActivity(contactsIntent);
 			}
 		});
        
     }
     
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-    	Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();		
+   @Override
+   public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+   	Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();		
     }
     
    @Override
@@ -138,7 +138,7 @@ public class MainActivity extends Activity
     }
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
-		Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();	
+	Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();	
 		
 	}
 
