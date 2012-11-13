@@ -13,5 +13,6 @@
     <string name="exit">Exit</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_list_restaurants">ListRestaurants</string>
+    <string name="restaurant_name">Restaurant Name</string>
 
 </resources>
