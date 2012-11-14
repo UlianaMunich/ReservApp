@@ -70,7 +70,7 @@ public class MainActivity extends Activity
            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
            if (networkInfo != null && networkInfo.isConnected()) {
         	   // dimakuv: uncomment this statement to connect to backend server
-               new GetCitiesTask().execute();
+               // new GetCitiesTask().execute();
            } else {
         	   	Toast.makeText(this, "WARNING: NO CONNECTION!", Toast.LENGTH_SHORT).show();		        	   
            }
