@@ -13,5 +13,8 @@
     <string name="exit">Exit</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_list_restaurants">ListRestaurants</string>
-
+    <string name="textView1">Please fill the form</string>
+    <string name="button_to_see_menu">See menu</string>
+    <string name="button_to_reservation">Make a tish reservation</string>
+    
 </resources>
