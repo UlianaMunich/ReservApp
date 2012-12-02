@@ -13,7 +13,7 @@
     <!-- dimakuv: permissions to use location services; don't delete! -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />          
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -24,12 +24,31 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".RestaurantListActivity"
             android:label="@string/title_activity_list_restaurants" >
+        </activity>
+        <activity
+            android:name=".ReservationMenuOfChoosenRestaurant"
+            android:label="@string/title_activity_reservation_menu_of_choosen_restaurant" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Reservation_Form"
+            android:label="@string/title_activity_reservation__form" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

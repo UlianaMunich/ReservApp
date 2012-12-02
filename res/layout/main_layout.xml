@@ -6,13 +6,14 @@
     android:orientation="vertical" >
     
      <Button
-        android:id="@+id/button1"
-        android:layout_width="275dip"
-        android:layout_height="65dip"       
-        android:layout_gravity="center"
-        android:paddingLeft="25dip"
-        android:paddingRight="25dip"
-        android:text="@string/button1" />
+         android:id="@+id/button1"
+         android:layout_width="275dip"
+         android:layout_height="65dip"
+         android:layout_gravity="center"
+         android:paddingLeft="25dip"
+         android:paddingRight="25dip"
+         android:text="@string/button1"
+         android:textColor="@android:color/background_light" />
             
 <!-- dimakuv: Spinner needs to specify android:layout_height, so I added it -->
 
@@ -21,7 +22,9 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:paddingLeft="25dip"
-         android:text=" Or choose the city from the list below :" />
+         android:text=" Or choose the city from the list below :"
+         android:textColor="@android:color/background_light"
+         android:textColorHint="@android:color/background_light" />
     
     <Spinner
         android:id="@+id/spinner1"
