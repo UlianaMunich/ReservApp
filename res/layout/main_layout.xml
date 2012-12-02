@@ -14,7 +14,15 @@
         android:paddingRight="25dip"
         android:text="@string/button1" />
             
-<!-- dimakuv: Spinner needs to specify android:layout_height, so I added it -->            
+<!-- dimakuv: Spinner needs to specify android:layout_height, so I added it -->
+
+     <TextView
+         android:id="@+id/text_chooose_city"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingLeft="25dip"
+         android:text=" Or choose the city from the list below :" />
+    
     <Spinner
         android:id="@+id/spinner1"
          android:layout_width="282dip"
