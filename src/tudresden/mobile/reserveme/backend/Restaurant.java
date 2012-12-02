@@ -55,10 +55,10 @@ public class Restaurant {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
-
+/*
 	@Override
 	public String toString() {
 		return name;		
 	}
-
+*/
 }

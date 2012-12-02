@@ -16,9 +16,11 @@ import org.restlet.resource.ClientResource;
 public class RestaurantManager {
 	
 	// NOTE: don't use "localhost" or "127.0.0.1", but your real IP 
-	private static final String host = "http://192.168.0.100:8182/restaurants/";
+//	private static final String host = "http://192.168.0.100:8182/reserveme/";
+	private static final String host = "http://141.76.41.223:8182/reserveme/";
 	
 	private static final String get_cities_path = host + "cities"; 
+	private static final String get_restaurants_path = host + "restaurants"; 
 	
 	public static boolean initConnection() {
         // initialize RESTlet client to use Apache HTTP Client
@@ -45,7 +47,7 @@ public class RestaurantManager {
         String[] cities = null;
         
         try {
-            // GET list of restaurants in JSON notation from the remote server
+            // GET list of cities in JSON notation from the remote server
      	   String json_list = cr.get(MediaType.APPLICATION_JSON).getText();
      	   JSONObject jsonObj = new JSONObject(json_list);
      	   JSONArray json_cities = jsonObj.getJSONArray("cities");
@@ -61,15 +63,37 @@ public class RestaurantManager {
         return cities;
 	}
 	
-	// just a mock for now
 	public static List<Restaurant> getRestaurants(String city) {
 		List<Restaurant> restaurants = new ArrayList<Restaurant>();
 
+        ClientResource cr = new ClientResource(get_restaurants_path + "/" + city);   
+        try {
+            // GET list of restaurants in JSON notation from the remote server
+     	   String json_list = cr.get(MediaType.APPLICATION_JSON).getText();
+     	   JSONObject jsonObj = new JSONObject(json_list);
+     	   JSONArray json_restaurants = jsonObj.getJSONArray("restaurants");
+     	   
+     	   for (int i = 0; i < json_restaurants.length(); i++) {
+     		   String[] rest_info = json_restaurants.getString(i).split(";");
+     		   Restaurant restaurant = new Restaurant(i,
+     				   					rest_info[0], 
+     				   					rest_info[1], 
+     				   					Double.valueOf(rest_info[2]),
+     				   					Double.valueOf(rest_info[3]));
+     		  restaurants.add(restaurant);
+     	   }
+        } catch (Exception e) {
+        	e.toString();
+ 			// nothing to do
+        }
+		
+/*        
 		// TODO in the end it will actually be sorted by distance
 		restaurants.add(new Restaurant(3, "BurgerKing", "Dresden", 51.041692, 13.734798));
 		restaurants.add(new Restaurant(2, "McDonalds Altstadt", "Dresden", 51.050378, 13.737202));
 		restaurants.add(new Restaurant(1, "Espitas", "Dresden", 51.050409, 13.737262));
-		
+*/
+        
 		return restaurants;
 	}
 
