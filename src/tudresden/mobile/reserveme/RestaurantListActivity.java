@@ -58,7 +58,7 @@ public class RestaurantListActivity extends Activity {
 		// Grab the city parameter from MainActivity
 		Bundle b = getIntent().getExtras();
 		this.city = b.getString("city");
-		
+       		
 		// Set the View layer
 		setContentView(R.layout.list_restaurants);
 		setTitle(this.city);

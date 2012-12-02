@@ -102,7 +102,12 @@ public class MainActivity extends Activity
     
    @Override
    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-//   	Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();		
+		Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
+		Bundle b = new Bundle();
+		b.putString("city", spin.getSelectedItem().toString());
+		intent.putExtras(b);
+		
+    	startActivity(intent);
     }
     
    @Override
