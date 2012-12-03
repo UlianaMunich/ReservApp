@@ -61,11 +61,6 @@ public class RestaurantListActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		restaurantsList.add(new Restaurant(3, "BurgerKing", "Dresden", 51.041692, 13.734798));
-		restaurantsList.add(new Restaurant(2, "McDonalds Altstadt", "Dresden", 51.050378, 13.737202));
-		restaurantsList.add(new Restaurant(1, "Espitas", "Dresden", 51.050409, 13.737262));
-
-		
 		// Grab the city parameter from MainActivity
 		Bundle b = getIntent().getExtras();
 		this.city = b.getString("city");
@@ -83,7 +78,7 @@ public class RestaurantListActivity extends Activity {
 		// Get reference to ListView holder
 		lvRestaurants = (ListView) this.findViewById(R.id.listview_restaurants);
 		
-        //new GetRestaurantsTask().execute(city);
+        new GetRestaurantsTask().execute(city);
 
 		// Create a customized ArrayAdapter
 		// empty in the beginning

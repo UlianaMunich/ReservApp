@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9B001C"
     android:orientation="vertical" >
 
     <TextView
@@ -10,13 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/textView1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Firstname and Lastname" />
+        android:text="Firstname and Lastname"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editText1"
@@ -32,7 +36,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="e-mail" />
+        android:text="e-mail"
+        android:textColor="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editText2"
@@ -45,7 +50,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone number" />
+        android:text="Phone number"
+        android:textColor="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editText3"
@@ -58,7 +64,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Day" />
+        android:text="Day"
+        android:textColor="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editText4"
@@ -71,7 +78,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time" />
+        android:text="Time"
+        android:textColor="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editText5"
@@ -86,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Check availability" />
+        android:text="Check availability"
+        android:textColor="@android:color/background_light" />
 
 </LinearLayout>

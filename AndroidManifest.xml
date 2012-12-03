@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tudresden.mobile.reserveme"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="16" />
 
     <!-- dimakuv: permissions to use internet; don't delete! -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,7 +21,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="tudresden.mobile.reserveme.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,11 +30,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RestaurantListActivity"
+            android:name="tudresden.mobile.reserveme.RestaurantListActivity"
             android:label="@string/title_activity_list_restaurants" >
         </activity>
         <activity
-            android:name=".ReservationMenuOfChoosenRestaurant"
+            android:name="tudresden.mobile.reserveme.ReservationMenuOfChoosenRestaurant"
             android:label="@string/title_activity_reservation_menu_of_choosen_restaurant" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,13 +43,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Reservation_Form"
+            android:name="tudresden.mobile.reserveme.Reservation_Form"
             android:label="@string/title_activity_reservation__form" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="tudresden.mobile.reserveme.Menu"
+            android:label="@string/title_activity_menu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tudresden.mobile.reserveme.MenuList"
+            android:label="@string/title_activity_menu_list" >
         </activity>
     </application>
 

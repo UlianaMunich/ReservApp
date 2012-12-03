@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class ReservationMenuOfChoosenRestaurant extends Activity {
 	private Button ReservationButton;
+	private Button SeeMenu;
 		
  	 
 
@@ -24,14 +25,31 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
         ReservationButton.setOnClickListener(new View.OnClickListener() {						
      	   	@Override
  			public void onClick(View v) {
-     	   		// open list of restaurants of this city
+     	   		// open next activity for reservation a table
  				Intent intent = new Intent(ReservationMenuOfChoosenRestaurant.this, Reservation_Form.class);
  				startActivity(intent);
      	   		System.out.println("Click reservation");
  			}
  		});
+        SeeMenu = (Button) findViewById(R.id.button_to_see_menu);
+        SeeMenu.setOnClickListener(new View.OnClickListener() {						
+     	   	@Override
+ 			public void onClick(View v) {
+     	   		// open next activity with the list of all menu
+ 				Intent intent = new Intent(ReservationMenuOfChoosenRestaurant.this, MenuList.class);
+ 				startActivity(intent);
+     	   		System.out.println("Click see menu");
+ 			}
+ 		});
     }
-
+    /*
+    public void onCreate1(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reservation_menu_of_choosen_restaurant);
+    
+        
+}
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_reservation_menu_of_choosen_restaurant, menu);
