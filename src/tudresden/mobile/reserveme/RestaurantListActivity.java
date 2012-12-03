@@ -82,12 +82,12 @@ public class RestaurantListActivity extends Activity {
 
 		// Create a customized ArrayAdapter
 		// empty in the beginning
-		RestaurantArrayAdapter adapter = new RestaurantArrayAdapter(
+		RestaurantArrayAdapter adapter1 = new RestaurantArrayAdapter(
 				getApplicationContext(), R.layout.listitem_restaurants, restaurantsList);
 				
 		// Set the ListView adapter
-		lv.setAdapter(adapter);
-		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		lvRestaurants.setAdapter(adapter1);
+		lvRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
