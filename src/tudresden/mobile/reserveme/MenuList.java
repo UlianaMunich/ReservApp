@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -31,7 +32,46 @@ public class MenuList extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	//define a context menu for every item in list of menu
+	@Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+    	  super.onCreateContextMenu(menu, v, menuInfo);
+    	  MenuInflater inflater = getMenuInflater();
+    	  inflater.inflate(R.menu.menu_context, menu);
+    	}
+    	/*
+    	// create OptionsMenu
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
 
+		AdapterContextMenuInfo acmi = (AdapterContextMenuInfo) item.getMenuInfo();
+		String item = contactsArray.get(acmi.position).getItem();
+		
+		switch (item.getItemId()) {
+		case R.id.Select: {
+			// add this meal to basket
+			Intent addContactIntent = new Intent(Contacts.Intents.Insert.ACTION, Contacts.People.CONTENT_URI);
+			// send name and email in contact application
+			addContactIntent.putExtra(Contacts.Intents.Insert.NAME, name); // an example, there is other data available
+			addContactIntent.putExtra(Contacts.Intents.Insert.EMAIL,email);
+			startActivity(addContactIntent);
+			return true;
+		}
+		case R.id.Cancel: {	
+			// back to the main list
+			ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+		    clipboard.setText(email);
+		    // start Contacts application
+			Intent i = new Intent();		    
+			i.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
+			i.setAction("android.intent.action.MAIN");
+			i.addCategory("android.intent.category.LAUNCHER");
+			i.addCategory("android.intent.category.DEFAULT");
+			startActivity(i);
+			return true;
+		}
+		
+*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -122,5 +162,6 @@ public class MenuList extends FragmentActivity {
 			return textView;
 		}
 	}
+
 
 }

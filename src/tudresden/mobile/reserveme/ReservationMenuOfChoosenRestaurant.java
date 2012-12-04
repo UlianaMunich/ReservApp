@@ -11,9 +11,7 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
 	private Button ReservationButton;
 	private Button SeeMenu;
 		
- 	 
-
-    @Override
+ 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_menu_of_choosen_restaurant);
@@ -42,19 +40,10 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
  			}
  		});
     }
-    /*
-    public void onCreate1(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reservation_menu_of_choosen_restaurant);
-    
-        
-}
-*/
+   
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_reservation_menu_of_choosen_restaurant, menu);
         return true;
     }
-    
-    
 }

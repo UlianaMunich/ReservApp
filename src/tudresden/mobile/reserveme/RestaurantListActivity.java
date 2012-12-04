@@ -101,12 +101,9 @@ public class RestaurantListActivity extends Activity {
 				Intent intent = new Intent(RestaurantListActivity.this, ReservationMenuOfChoosenRestaurant.class);
 				startActivity(intent);
 				System.out.println("OK");
-				
-			}
-			
+				}
 		});
-		
-	}
+		}
 	 @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
 	        getMenuInflater().inflate(R.menu.activity_main, menu);
