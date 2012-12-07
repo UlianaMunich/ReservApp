@@ -19,9 +19,9 @@
     <string name="button_to_reservation">Make a table reservation</string>
     <string name="title_activity_reservation_menu_of_choosen_restaurant">ReserveRest</string>
     <string name="title_activity_reservation__form">Reservation form</string>
-    <string name="title_section3">Soups</string>
-    <string name="title_section2">Main</string>
-    <string name="title_section1">Salats</string>
+    <string name="title_section3">Salads</string>
+    <string name="title_section2">Soups</string>
+    <string name="title_section1">Mains</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_menu_list">MenuList</string>
     <string name="meal_title">Meal_title</string>

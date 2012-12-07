@@ -1,5 +1,6 @@
-package tudresden.mobile.reserveme;
+package tudresden.mobile.reserverest;
 
+import tudresden.mobile.reserverest.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

@@ -1,8 +1,8 @@
-package tudresden.mobile.reserveme.backend;
+package tudresden.mobile.reserverest.backend;
 
 import android.content.Context;
 import android.location.Location;
-import tudresden.mobile.reserveme.backend.LocationFinder.LocationResult;
+import tudresden.mobile.reserverest.backend.LocationFinder.LocationResult;
 
 /* implemented as the simplest skeleton, who cares about threads... */
 public class MyLocation {

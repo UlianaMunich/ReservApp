@@ -1,11 +1,12 @@
-package tudresden.mobile.reserveme;
+package tudresden.mobile.reserverest;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tudresden.mobile.reserveme.backend.MyLocation;
-import tudresden.mobile.reserveme.backend.Restaurant;
+import tudresden.mobile.reserverest.R;
+import tudresden.mobile.reserverest.backend.MyLocation;
+import tudresden.mobile.reserverest.backend.Restaurant;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RestaurantArrayAdapter extends ArrayAdapter<Restaurant> {
-	private static final String ASSETS_DIR = "images/";
+	private static final String CUISINE_DIR = "images/cuisine/";
 	private Context context;
 	private ImageView restaurantIcon;
 	private TextView restaurantName;
@@ -59,14 +60,20 @@ public class RestaurantArrayAdapter extends ArrayAdapter<Restaurant> {
 		//Set country name
 		restaurantName.setText(restaurant.getName());
 		
-		// Set country icon usign File path
-		String imgFilePath = ASSETS_DIR + "mock.png";
+		// Set country icon using File path
 		try {
-			Bitmap bitmap = BitmapFactory.decodeStream(this.context.getResources().getAssets()
-					.open(imgFilePath));
+			String imgFilePath = CUISINE_DIR + restaurant.getCuisine() + ".png";
+			Bitmap bitmap = BitmapFactory.decodeStream(this.context.getResources().getAssets().open(imgFilePath));
 			restaurantIcon.setImageBitmap(bitmap);
 		} catch (IOException e) {
-			e.printStackTrace();
+			String imgFilePath = CUISINE_DIR + "default.png";
+			try {
+				Bitmap bitmap = BitmapFactory.decodeStream(this.context.getResources().getAssets().open(imgFilePath));
+				restaurantIcon.setImageBitmap(bitmap);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		// Set restaurant distance from current location

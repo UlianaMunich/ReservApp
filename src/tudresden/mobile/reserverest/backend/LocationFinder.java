@@ -1,4 +1,4 @@
-package tudresden.mobile.reserveme.backend;
+package tudresden.mobile.reserverest.backend;
 
 import java.util.Timer;
 import java.util.TimerTask;

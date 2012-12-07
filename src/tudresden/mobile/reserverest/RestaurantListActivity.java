@@ -1,11 +1,12 @@
-package tudresden.mobile.reserveme;
+package tudresden.mobile.reserverest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import tudresden.mobile.reserveme.MainActivity.GetCitiesTask;
-import tudresden.mobile.reserveme.backend.Restaurant;
-import tudresden.mobile.reserveme.backend.RestaurantManager;
+import tudresden.mobile.reserverest.R;
+import tudresden.mobile.reserverest.MainActivity.GetCitiesTask;
+import tudresden.mobile.reserverest.backend.Restaurant;
+import tudresden.mobile.reserverest.backend.RestaurantManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,34 +62,22 @@ public class RestaurantListActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		restaurantsList.add(new Restaurant(3, "BurgerKing", "Dresden", 51.041692, 13.734798));
-		restaurantsList.add(new Restaurant(2, "McDonalds Altstadt", "Dresden", 51.050378, 13.737202));
-		restaurantsList.add(new Restaurant(1, "Espitas", "Dresden", 51.050409, 13.737262));
-
-		
 		// Grab the city parameter from MainActivity
 		Bundle b = getIntent().getExtras();
 		this.city = b.getString("city");
        		
 		// Set the View layer
 		setContentView(R.layout.list_restaurants);
-		setTitle("Restaurants in "+this.city);
+		setTitle("Restaurants in " + this.city);
 
-		List<Restaurant> countryList = RestaurantManager.getRestaurants(this.city);	
-		
-		// Create a customized ArrayAdapter
-		RestaurantArrayAdapter adapter = new RestaurantArrayAdapter(
-				getApplicationContext(), R.layout.listitem_restaurants, countryList);
-		
 		// Get reference to ListView holder
 		lvRestaurants = (ListView) this.findViewById(R.id.listview_restaurants);
 		
-        //new GetRestaurantsTask().execute(city);
+        new GetRestaurantsTask().execute(city);
 
 		// Create a customized ArrayAdapter
 		// empty in the beginning
 		RestaurantArrayAdapter adapter1 = new RestaurantArrayAdapter(
-
 			getApplicationContext(), R.layout.listitem_restaurants, restaurantsList);
 
 		// Set the ListView adapter
@@ -96,12 +85,21 @@ public class RestaurantListActivity extends Activity {
 		lvRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				Intent intent = new Intent(RestaurantListActivity.this, ReservationMenuOfChoosenRestaurant.class);
+				
+				Restaurant r = restaurantsList.get(position);
+				Bundle b = new Bundle();
+				b.putInt("rest_id", r.getId());
+				b.putString("name", r.getName());
+				b.putString("desc", r.getDesc());
+				b.putString("address", r.getAddress());
+				b.putInt("rating", r.getRating());
+				intent.putExtras(b);
+				
 				startActivity(intent);
 				System.out.println("OK");
-				}
+			}
 		});
 		}
 	 @Override

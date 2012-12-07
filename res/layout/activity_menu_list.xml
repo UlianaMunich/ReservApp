@@ -6,39 +6,6 @@
     android:background="#9B001C"
     tools:context=".MenuList" >
     
-    <LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="horizontal"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-
-	<ImageView
-		android:id="@+id/meal_icon"
-		android:layout_gravity="left"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
-
-	<TextView
-		android:id="@+id/meal_title"
-		android:text="@string/meal_title"
-		android:paddingLeft="10dip"
-		android:layout_weight="0.5"
-		android:layout_gravity="center"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
-	
-	<TextView
-		android:id="@+id/meal_cost"
-		android:text="@string/meal_cost"
-		android:paddingLeft="10dip"
-		android:layout_weight="0.5"
-		android:layout_gravity="center"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
-
-
-</LinearLayout>
-    
     <!--
     This title strip will display the currently visible page title, as well as the page
     titles for adjacent pages.

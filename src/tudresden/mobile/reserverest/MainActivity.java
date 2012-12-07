@@ -1,4 +1,4 @@
-package tudresden.mobile.reserveme;
+package tudresden.mobile.reserverest;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -14,8 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-import tudresden.mobile.reserveme.backend.MyLocation;
-import tudresden.mobile.reserveme.backend.RestaurantManager;
+import tudresden.mobile.reserverest.R;
+import tudresden.mobile.reserverest.backend.MyLocation;
+import tudresden.mobile.reserverest.backend.RestaurantManager;
 
 public class MainActivity extends Activity 
     implements AdapterView.OnItemSelectedListener  {	
@@ -78,9 +79,8 @@ public class MainActivity extends Activity
        spin=(Spinner)findViewById(R.id.spinner1);
        spin.setOnItemSelectedListener(this);
        
-       String[] cities = {"Dresden", "Leipzig", "Hamburg", "Berlin"};
        ArrayAdapter<String> aa=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, 
-    		   cities);
+    		   new String[]{});
        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
        spin.setAdapter(aa);
 

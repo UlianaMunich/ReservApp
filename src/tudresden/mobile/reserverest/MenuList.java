@@ -1,22 +1,32 @@
-package tudresden.mobile.reserveme;
+package tudresden.mobile.reserverest;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import tudresden.mobile.reserverest.R;
+import tudresden.mobile.reserverest.backend.Dish;
+import tudresden.mobile.reserverest.backend.RestaurantManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MenuList extends FragmentActivity {
+	static final String[] dishtypes = {"main", "soup", "salad"};
+
+	private int rest_id = 0;
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -32,6 +42,7 @@ public class MenuList extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
 	//define a context menu for every item in list of menu
 	@Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
@@ -39,6 +50,7 @@ public class MenuList extends FragmentActivity {
     	  MenuInflater inflater = getMenuInflater();
     	  inflater.inflate(R.menu.menu_context, menu);
     	}
+	
     	/*
     	// create OptionsMenu
 	@Override
@@ -76,6 +88,11 @@ public class MenuList extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_list);
+		
+		Bundle b = getIntent().getExtras();
+		
+		rest_id = b.getInt("rest_id");
+		setTitle(b.getString("rest_name"));
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
@@ -112,7 +129,7 @@ public class MenuList extends FragmentActivity {
 			// below) with the page number as its lone argument.
 			Fragment fragment = new DummySectionFragment();
 			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position);
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -141,7 +158,43 @@ public class MenuList extends FragmentActivity {
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
 	 */
-	public static class DummySectionFragment extends Fragment {
+	public class DummySectionFragment extends ListFragment {
+
+//		ListView lvDishes;
+		List<Dish> dishesList = new ArrayList<Dish>();
+		int type_id = 0;
+		
+		/* dimakuv: 
+		 *   Background Task for fetching list of dishes from our backend server into Spinner
+		 */
+		public class GetDishesTask extends AsyncTask<String, Void, DishArrayAdapter> {
+			
+			@Override
+			protected DishArrayAdapter doInBackground(String... types) {
+				DishArrayAdapter aa = null;
+
+				dishesList = RestaurantManager.getDishes(types[0]);		
+
+				if (dishesList != null) {
+					aa = new DishArrayAdapter(
+							getActivity(), R.layout.listitem_restaurants, dishesList);
+				}
+		        
+				return aa;
+			}
+			
+			@Override
+			protected void onPostExecute(DishArrayAdapter aa) {			
+				// NOTE: this method is executed in main, UI thread
+				if (aa != null) {
+					setListAdapter(aa);			
+				} else {
+	        	   	Toast.makeText(getActivity(), "WARNING: Didn't retrieve dishes!", Toast.LENGTH_SHORT).show();		        	   
+	           }
+			}
+		}
+		
+		
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -154,13 +207,27 @@ public class MenuList extends FragmentActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			// Create a new TextView and set its text to the fragment's section
-			// number argument value.
-			TextView textView = new TextView(getActivity());
-			textView.setGravity(Gravity.CENTER);
-			textView.setText("Menu items will be here");
-			return textView;
+			Bundle args = getArguments();
+			type_id = args.getInt(ARG_SECTION_NUMBER);
+			
+	        new GetDishesTask().execute(dishtypes[type_id]);
+	        
+            return super.onCreateView(inflater, container, savedInstanceState);	        
 		}
+		
+		@Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+
+//			dishesList = RestaurantManager.getDishes(types[type_id]);		
+			
+            // Create a customized ArrayAdapter
+			// empty in the beginning
+			DishArrayAdapter adapter = new DishArrayAdapter(
+					getActivity(), R.layout.listitem_dishes, dishesList);
+
+			setListAdapter(adapter);
+        }		
 	}
 
 
