@@ -6,9 +6,13 @@
     android:orientation="vertical" >
     
 	<ListView
-  		android:id="@+id/listview_dishes"
-  		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent">
+	    android:id="@+id/listview_dishes"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:animateLayoutChanges="true"
+	    android:background="#2C4965"
+	    >
+
 	</ListView>
     
 </LinearLayout>

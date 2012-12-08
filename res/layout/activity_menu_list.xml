@@ -3,7 +3,7 @@
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9B001C"
+    android:background="#2D465F"
     tools:context=".MenuList" >
     
     <!--

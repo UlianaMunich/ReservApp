@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#2C4965"
+    android:orientation="vertical" >
 
 	<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,30 +12,35 @@
 		android:layout_height="wrap_content">
 	
 	   	<TextView
-			android:id="@+id/dish_name"
-			android:text="Name of dish"
-			android:paddingLeft="10dip"
-			android:layout_weight="0.5"
-			android:layout_gravity="center"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
+	   	    android:id="@+id/dish_name"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="wrap_content"
+	   	    android:layout_gravity="center"
+	   	    android:layout_weight="0.5"
+	   	    android:paddingLeft="10dip"
+	   	    android:text="Name of dish"
+	   	    android:textColorLink="@android:color/background_light"
+	   	    android:textColor="@android:color/background_light" />
 		
 		<TextView
-			android:id="@+id/dish_price"
-			android:text="10.00 $"
-			android:layout_gravity="right"
-			android:paddingRight="10dip"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
+		    android:id="@+id/dish_price"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="right"
+		    android:paddingRight="10dip"
+		    android:text="10.00 $"
+		    android:textColorLink="@android:color/background_light"
+		    android:textColor="@android:color/background_light" />
 
 	</LinearLayout>
 	
 	<TextView
-		android:id="@+id/dish_desc"
-		android:text="Dish description"
-		android:layout_gravity="left"
-		android:paddingLeft="20dip"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
-		
+	    android:id="@+id/dish_desc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="left"
+	    android:paddingLeft="20dip"
+	    android:text="Dish description"
+	    android:textColorLink="@android:color/background_light"
+        android:textColor="@android:color/background_light"/>		
 </LinearLayout>
