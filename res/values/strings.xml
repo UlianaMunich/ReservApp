@@ -7,7 +7,6 @@
     <string name="button1">Nearby restaurants</string>
     <string name="button2">Country</string>
     <string name="spiner1">Dresden</string>
-    <string name="favourites">Favourite</string>
     <string name="profile">Profile</string>
     <string name="about">About</string>
     <string name="update">Update</string>
@@ -26,5 +25,7 @@
     <string name="title_activity_menu_list">MenuList</string>
     <string name="meal_title">Meal_title</string>
     <string name="meal_cost">Cost</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_user_profile">UserProfile</string>
 
 </resources>

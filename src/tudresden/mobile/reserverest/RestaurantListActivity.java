@@ -104,7 +104,7 @@ public class RestaurantListActivity extends Activity {
 		}
 	 @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
-	        getMenuInflater().inflate(R.menu.activity_main, menu);
+	        getMenuInflater().inflate(R.menu.activity_menu, menu);
 	        return true;
 	    }
 

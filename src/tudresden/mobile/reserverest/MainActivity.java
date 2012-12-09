@@ -5,6 +5,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;    
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import tudresden.mobile.reserverest.R;
 import tudresden.mobile.reserverest.backend.MyLocation;
 import tudresden.mobile.reserverest.backend.RestaurantManager;
+import android.view.MenuItem;
 
 public class MainActivity extends Activity 
     implements AdapterView.OnItemSelectedListener  {	
@@ -109,12 +111,55 @@ public class MainActivity extends Activity
 		
     	startActivity(intent);
     }
-    
+ //Options menu   
    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
+ // handling OptionsMenu event
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+       // Handle item selection
+       switch (item.getItemId()) {
+	        case R.id.profile:
+	        	// go to UserProfile
+	        	Intent mainIntent = new Intent(MainActivity.this, UserProfile.class);
+	        	startActivity(mainIntent);
+	        	Toast.makeText(getBaseContext(), "Profile", Toast.LENGTH_LONG).show();	
+	        	return true;
+           case R.id.exit:  
+	   Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
+   	     return true;
+
+       }
+	return false;
+   };
+   
+   /* 	
+	        case R.id.update:
+	        	AlertDialog.Builder infoWindow = new AlertDialog.Builder(this);
+	        	infoWindow.setTitle(R.string.info);
+	        	infoWindow.setMessage(R.string.info_content);false
+	        	infoWindow.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+	        	infoWindow.show();        	
+	        	return true;
+        case R.id.select_all_contacts:
+	        	checkBoxManager(contacstListView, true);
+	        	return true;
+	        case R.id.unselect_contacts:   
+	        	checkBoxManager(contacstListView, false);
+	        	return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+       }
+   } */  
+   
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
 //		Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();	

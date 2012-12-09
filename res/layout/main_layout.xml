@@ -9,6 +9,8 @@
          android:id="@+id/button1"
          android:layout_width="275dip"
          android:layout_height="65dip"
+         android:layout_marginTop="20dip"
+         android:layout_marginBottom="20dip"
          android:layout_gravity="center"
          android:paddingLeft="25dip"
          android:paddingRight="25dip"
@@ -22,6 +24,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:paddingLeft="25dip"
+         android:layout_marginTop="5dip"
+         android:layout_marginBottom="5dip"
          android:text=" Or choose the city from the list below :"
          android:textColor="@android:color/background_light"
          android:textColorHint="@android:color/background_light" />
@@ -33,6 +37,7 @@
         android:layout_gravity="center"
         android:contentDescription="@string/spiner1"
         android:dropDownSelector="@string/spiner1"
+        android:soundEffectsEnabled="true"
         android:focusableInTouchMode="true"
         android:scrollbars="horizontal" />
 

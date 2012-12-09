@@ -49,6 +49,10 @@
             android:name="tudresden.mobile.reserverest.MenuList"
             android:label="@string/title_activity_menu_list" >
         </activity>
+        <activity
+            android:name="tudresden.mobile.reserverest.UserProfile"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
     </application>
 
 </manifest>

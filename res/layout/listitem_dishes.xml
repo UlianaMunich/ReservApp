@@ -16,11 +16,14 @@
 	   	    android:layout_width="wrap_content"
 	   	    android:layout_height="wrap_content"
 	   	    android:layout_gravity="center"
-	   	    android:layout_weight="0.5"
+	   	    android:layout_weight="1.2"
 	   	    android:paddingLeft="10dip"
+	   	    android:layout_marginBottom="4dip"
 	   	    android:text="Name of dish"
+	   	    android:textColor="@android:color/background_light"
 	   	    android:textColorLink="@android:color/background_light"
-	   	    android:textColor="@android:color/background_light" />
+	   	    android:textSize="18dp"
+	   	    android:textStyle="bold" />
 		
 		<TextView
 		    android:id="@+id/dish_price"
@@ -29,18 +32,23 @@
 		    android:layout_gravity="right"
 		    android:paddingRight="10dip"
 		    android:text="10.00 $"
+		    android:textColor="@android:color/background_light"
 		    android:textColorLink="@android:color/background_light"
-		    android:textColor="@android:color/background_light" />
+		    android:textSize="18dp"
+		    android:textStyle="normal" />
 
 	</LinearLayout>
 	
 	<TextView
 	    android:id="@+id/dish_desc"
-	    android:layout_width="wrap_content"
+	    android:layout_width="190dp"
 	    android:layout_height="wrap_content"
 	    android:layout_gravity="left"
+	    android:layout_weight="1.2"
+	    android:layout_marginBottom="4dip"
 	    android:paddingLeft="20dip"
 	    android:text="Dish description"
-	    android:textColorLink="@android:color/background_light"
-        android:textColor="@android:color/background_light"/>		
+	    android:textColor="@android:color/background_light"
+	    android:textColorLink="@android:color/background_light" />
+		
 </LinearLayout>
