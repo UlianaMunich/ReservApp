@@ -24,7 +24,7 @@ public class MainActivity extends Activity
     implements AdapterView.OnItemSelectedListener  {	
 	
 	private Spinner spin;
-	private Button saveButton;
+	private Button mapButton;
 	
 	/* dimakuv: 
 	 *   Background Task for fetching list of cities from our backend server into Spinner
@@ -86,16 +86,12 @@ public class MainActivity extends Activity
        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
        spin.setAdapter(aa);
 
-       saveButton = (Button)findViewById(R.id.button1);
-       saveButton.setOnClickListener(new View.OnClickListener() {						
+       mapButton = (Button)findViewById(R.id.button1);
+       mapButton.setOnClickListener(new View.OnClickListener() {						
     	   	@Override
 			public void onClick(View v) {
-    	   		// open list of restaurants of this city
-				Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-				Bundle b = new Bundle();
-				b.putString("city", spin.getSelectedItem().toString());
-				intent.putExtras(b);
-				
+    	   		// open Google Maps view
+				Intent intent = new Intent(MainActivity.this, MapActivity.class);
 	        	startActivity(intent);
 			}
 		});
@@ -111,6 +107,7 @@ public class MainActivity extends Activity
 		
     	startActivity(intent);
     }
+   
  //Options menu   
    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -122,15 +119,15 @@ public class MainActivity extends Activity
    public boolean onOptionsItemSelected(MenuItem item) {
        // Handle item selection
        switch (item.getItemId()) {
-	        case R.id.profile:
+	   	case R.id.profile:
 	        	// go to UserProfile
 	        	Intent mainIntent = new Intent(MainActivity.this, UserProfile.class);
 	        	startActivity(mainIntent);
 	        	Toast.makeText(getBaseContext(), "Profile", Toast.LENGTH_LONG).show();	
 	        	return true;
-           case R.id.exit:  
-	   Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
-   	     return true;
+        case R.id.exit:  
+        	   Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
+        return true;
 
        }
 	return false;
