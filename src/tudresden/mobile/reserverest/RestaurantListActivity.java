@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tudresden.mobile.reserverest.R;
-import tudresden.mobile.reserverest.MainActivity.GetCitiesTask;
 import tudresden.mobile.reserverest.backend.Restaurant;
 import tudresden.mobile.reserverest.backend.RestaurantManager;
 import android.app.Activity;
@@ -13,10 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -89,8 +85,9 @@ public class RestaurantListActivity extends Activity {
 				Intent intent = new Intent(RestaurantListActivity.this, ReservationMenuOfChoosenRestaurant.class);
 				
 				Restaurant r = restaurantsList.get(position);
+				RestaurantManager.setRestaurant(r);
+				
 				Bundle b = new Bundle();
-				b.putInt("rest_id", r.getId());
 				b.putString("name", r.getName());
 				b.putString("desc", r.getDesc());
 				b.putString("address", r.getAddress());
@@ -101,7 +98,8 @@ public class RestaurantListActivity extends Activity {
 				System.out.println("OK");
 			}
 		});
-		}
+	}
+	
 	 @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
 	        getMenuInflater().inflate(R.menu.activity_menu, menu);

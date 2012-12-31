@@ -1,22 +1,15 @@
 package tudresden.mobile.reserverest;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import tudresden.mobile.reserverest.R;
 import tudresden.mobile.reserverest.backend.Dish;
-import tudresden.mobile.reserverest.backend.MyLocation;
-import tudresden.mobile.reserverest.backend.Restaurant;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DishArrayAdapter extends ArrayAdapter<Dish> {

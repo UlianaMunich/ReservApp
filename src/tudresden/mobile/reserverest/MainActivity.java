@@ -5,7 +5,6 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;    
@@ -37,7 +36,6 @@ public class MainActivity extends Activity
 
 			String cities[] = RestaurantManager.getCities();
 			if (cities != null) {
-	     	   // TODO: is there a better way to dynamically change spinner's list?
 	           aa = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, 
 	        		   cities);
 	           aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -50,7 +48,7 @@ public class MainActivity extends Activity
 		protected void onPostExecute(ArrayAdapter<String> aa) {			
 			// NOTE: this method is executed in main, UI thread
 			if (aa != null) {
-				spin.setAdapter(aa);			
+				spin.setAdapter(aa);
 			} else {
         	   	Toast.makeText(MainActivity.this, "WARNING: Didn't retrieve cities!", Toast.LENGTH_SHORT).show();		        	   
            }
@@ -72,7 +70,6 @@ public class MainActivity extends Activity
                getSystemService(Context.CONNECTIVITY_SERVICE);
            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
            if (networkInfo != null && networkInfo.isConnected()) {
-        	   // dimakuv: uncomment this statement to connect to backend server
                new GetCitiesTask().execute();
            } else {
         	   	Toast.makeText(this, "WARNING: NO CONNECTION!", Toast.LENGTH_SHORT).show();		        	   
@@ -100,6 +97,11 @@ public class MainActivity extends Activity
     
    @Override
    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+	    if (position == 0) {
+	    	// "-- choose city --" (default) is selected
+	    	return;
+	    }
+	    	
 		Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
 		Bundle b = new Bundle();
 		b.putString("city", spin.getSelectedItem().toString());
@@ -132,30 +134,6 @@ public class MainActivity extends Activity
        }
 	return false;
    };
-   
-   /* 	
-	        case R.id.update:
-	        	AlertDialog.Builder infoWindow = new AlertDialog.Builder(this);
-	        	infoWindow.setTitle(R.string.info);
-	        	infoWindow.setMessage(R.string.info_content);false
-	        	infoWindow.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-
-	        	infoWindow.show();        	
-	        	return true;
-        case R.id.select_all_contacts:
-	        	checkBoxManager(contacstListView, true);
-	        	return true;
-	        case R.id.unselect_contacts:   
-	        	checkBoxManager(contacstListView, false);
-	        	return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-       }
-   } */  
    
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {

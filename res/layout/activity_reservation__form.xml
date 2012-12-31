@@ -6,24 +6,24 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tvFillForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/textView1"
+        android:text="@string/tvFillForm"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/background_light" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Firstname and Lastname"
+        android:text="First and last names"
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,68 +33,77 @@
     </EditText>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="e-mail"
         android:textColor="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Phone number"
         android:textColor="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Day"
         android:textColor="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/etDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time"
         android:textColor="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/etTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnShowBasket"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Check availability"
+        android:text="Show basket"
+        android:textColor="@android:color/background_light" />
+    
+    <Button
+        android:id="@+id/btnPushReserve"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Reserve"
         android:textColor="@android:color/background_light" />
 
 </LinearLayout>

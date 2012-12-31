@@ -1,8 +1,5 @@
 package tudresden.mobile.reserverest.backend;
 
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +13,45 @@ import org.restlet.resource.ClientResource;
 
 public class RestaurantManager {
 	
+	private static Restaurant restaurant = null;
+	private static Reservation reservation = null;
+	private static List<Dish> basketDishes = new ArrayList<Dish>();
+	private static String[] cities = null;
+	private static List<Restaurant> restaurants = null;
+	private static List<Dish> dishes = null;
+
+	
 	// NOTE: don't use "localhost" or "127.0.0.1", but your real IP 
 //	private static final String host = "http://192.168.0.100:8182/reserveme/";
 	private static final String host = "http://141.76.41.223:8182/reserveme/";
 	
 	private static final String get_cities_path = host + "cities"; 
 	private static final String get_restaurants_path = host + "restaurants"; 
-	
+		
+	public static Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public static void setRestaurant(Restaurant restaurant) {
+		RestaurantManager.restaurant = restaurant;
+	}
+
+	public static Reservation getReservation() {
+		return reservation;
+	}
+
+	public static void setReservation(Reservation reservation) {
+		RestaurantManager.reservation = reservation;
+	}
+
+	public static List<Dish> getBasketDishes() {
+		return basketDishes;
+	}
+
+	public static void setBasketDishes(List<Dish> basketDishes) {
+		RestaurantManager.basketDishes = basketDishes;
+	}
+
 	public static boolean initConnection() {
         // initialize RESTlet client to use Apache HTTP Client
         Engine.getInstance().getRegisteredClients().clear();
@@ -44,13 +73,17 @@ public class RestaurantManager {
 	}
 	
 	public static String[] getCities() {
+		if (cities != null)
+			return cities;
+		
 		if (!ReserveRestSettings.USEINTERNET) {
-			String[] cities = {"Dresden", "Leipzig", "Hamburg", "Berlin"};
+			String[] defaultCities = {"-- choose city --", "Dresden", "Leipzig", "Hamburg", "Berlin"};
+			cities = defaultCities;
 		    return cities;
 		}
 
         ClientResource cr = new ClientResource(get_cities_path);
-        String[] cities = null;
+        cities = null;
         
         try {
             // GET list of cities in JSON notation from the remote server
@@ -58,9 +91,10 @@ public class RestaurantManager {
      	   JSONObject jsonObj = new JSONObject(json_list);
      	   JSONArray json_cities = jsonObj.getJSONArray("cities");
      	   
-     	   cities = new String[json_cities.length()];
+     	   cities = new String[json_cities.length() + 1];
+     	   cities[0] = "-- choose city --";
      	   for (int i = 0; i < json_cities.length(); i++) {
-     		   cities[i] = json_cities.getString(i);
+     		   cities[i + 1] = json_cities.getString(i);
      	   }
         } catch (Exception e) {
  			// nothing to do
@@ -70,7 +104,10 @@ public class RestaurantManager {
 	}
 	
 	public static List<Restaurant> getRestaurants(String city) {
-		List<Restaurant> restaurants = new ArrayList<Restaurant>();
+		if (restaurants != null)
+			return restaurants;
+		
+		restaurants = new ArrayList<Restaurant>();
 
 		if (!ReserveRestSettings.USEINTERNET) {
 			restaurants.add(new Restaurant(4, "Vapiano", "Dresden", 51.073345, 13.736809, "italy", "Pasta | Pizza | Bar", 8, "St. Petersburger Straße 26"));
@@ -109,6 +146,9 @@ public class RestaurantManager {
 	}
 
 	public static List<Dish> getDishes(String type) {
+		if (dishes != null) 
+			return dishes;
+		
 		List<Dish> dishes = new ArrayList<Dish>();
 
 		if (!ReserveRestSettings.USEINTERNET) {
@@ -159,20 +199,20 @@ public class RestaurantManager {
 				
 			} else if (type == "salad") {
 				dishes.add(new Dish(8, 0, 
-						"Caesar Salad", 
-						"Caesar Salad",
+						"Caesar Salad 1", 
+						"Caesar Salad 1",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						8, "salad", 6.9, 999));
 				dishes.add(new Dish(9, 0, 
-						"Caesar Salad", 
-						"Caesar Salad",
+						"Caesar Salad 2", 
+						"Caesar Salad 2",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						9, "salad", 7.9, 999));
 				dishes.add(new Dish(8, 0, 
-						"Caesar Salad", 
-						"Caesar Salad",
+						"Caesar Salad 3", 
+						"Caesar Salad 3",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						"Romanasalat mit Parmesandressing, knusprigen Croutons und gehobeltem Parmesan",
 						8, "salad", 6.9, 999));
@@ -185,6 +225,20 @@ public class RestaurantManager {
 		//TODO: get dishes from backend
 		
 		return dishes;
+	}
+	
+	public static boolean pushReservation() {
+		// add dishes from the basket to the reservation, if not added already
+		if (reservation.getDishes() == null && basketDishes != null)
+			reservation.setDishes(basketDishes);
+		
+		if (!ReserveRestSettings.USEINTERNET) {
+			return true;
+		}
+
+		//TODO: actually push to backend
+		
+		return false;
 	}
 	
 }

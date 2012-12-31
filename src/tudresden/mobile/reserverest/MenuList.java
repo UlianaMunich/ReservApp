@@ -6,6 +6,7 @@ import java.util.List;
 import tudresden.mobile.reserverest.R;
 import tudresden.mobile.reserverest.backend.Dish;
 import tudresden.mobile.reserverest.backend.RestaurantManager;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,14 +20,15 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MenuList extends FragmentActivity {
 	static final String[] dishtypes = {"main", "soup", "salad"};
-
-	private int rest_id = 0;
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,47 +45,6 @@ public class MenuList extends FragmentActivity {
 	 */
 	ViewPager mViewPager;
 	
-	//define a context menu for every item in list of menu
-	@Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-    	  super.onCreateContextMenu(menu, v, menuInfo);
-    	  MenuInflater inflater = getMenuInflater();
-    	  inflater.inflate(R.menu.menu_context, menu);
-    	}
-	
-    	/*
-    	// create OptionsMenu
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-
-		AdapterContextMenuInfo acmi = (AdapterContextMenuInfo) item.getMenuInfo();
-		String item = contactsArray.get(acmi.position).getItem();
-		
-		switch (item.getItemId()) {
-		case R.id.Select: {
-			// add this meal to basket
-			Intent addContactIntent = new Intent(Contacts.Intents.Insert.ACTION, Contacts.People.CONTENT_URI);
-			// send name and email in contact application
-			addContactIntent.putExtra(Contacts.Intents.Insert.NAME, name); // an example, there is other data available
-			addContactIntent.putExtra(Contacts.Intents.Insert.EMAIL,email);
-			startActivity(addContactIntent);
-			return true;
-		}
-		case R.id.Cancel: {	
-			// back to the main list
-			ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-		    clipboard.setText(email);
-		    // start Contacts application
-			Intent i = new Intent();		    
-			i.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
-			i.setAction("android.intent.action.MAIN");
-			i.addCategory("android.intent.category.LAUNCHER");
-			i.addCategory("android.intent.category.DEFAULT");
-			startActivity(i);
-			return true;
-		}
-		
-*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,7 +52,6 @@ public class MenuList extends FragmentActivity {
 		
 		Bundle b = getIntent().getExtras();
 		
-		rest_id = b.getInt("rest_id");
 		setTitle(b.getString("rest_name"));
 
 		// Create the adapter that will return a fragment for each of the three
@@ -154,10 +114,6 @@ public class MenuList extends FragmentActivity {
 		}
 	}
 
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
 	public class DummySectionFragment extends ListFragment {
 
 //		ListView lvDishes;
@@ -219,16 +175,80 @@ public class MenuList extends FragmentActivity {
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
 
-//			dishesList = RestaurantManager.getDishes(types[type_id]);		
-			
             // Create a customized ArrayAdapter
 			// empty in the beginning
 			DishArrayAdapter adapter = new DishArrayAdapter(
 					getActivity(), R.layout.listitem_dishes, dishesList);
 
 			setListAdapter(adapter);
-        }		
-	}
+			registerForContextMenu(getListView());
+        }
+		
+		@Override
+	    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+	    	  super.onCreateContextMenu(menu, v, menuInfo);
+	    	  MenuInflater inflater = getMenuInflater();
+	    	  inflater.inflate(R.menu.menu_context, menu);
+	    	}
+		
+		@Override
+		public boolean onContextItemSelected(MenuItem item) {
+			AdapterView.AdapterContextMenuInfo info = null;
+			try {
+			    info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+			} catch (ClassCastException e) {
+				/* nothing to do */
+			}
 
+			List<Dish> basketDishes = RestaurantManager.getBasketDishes();
+			Dish dish = (Dish) getListAdapter().getItem(info.position);
+			
+			switch (item.getItemId()) {
+				case R.id.Select:
+					// add this dish to basket
+					if (!basketDishes.contains(dish)) {
+						basketDishes.add(dish);
+						Toast.makeText(getActivity(), "Added", Toast.LENGTH_SHORT).show();
+					} else {
+						Toast.makeText(getActivity(), "Already in the basket", Toast.LENGTH_SHORT).show();					
+					}
+					break;
+			
+				case R.id.Remove:
+					if (basketDishes.contains(dish)) {
+						basketDishes.remove(dish);
+						Toast.makeText(getActivity(), "Removed", Toast.LENGTH_SHORT).show();
+					} else {
+						Toast.makeText(getActivity(), "Wasn't in the basket", Toast.LENGTH_SHORT).show();					
+					}
+					break;
+					
+				case R.id.ShowBasket:
+					Intent intent = new Intent(getActivity(), BasketActivity.class);
+			    	startActivity(intent);
+					break;
+			
+				case R.id.Cancel:
+					return false;
+			}
+			
+			return true;
+		}
+		
+		@Override
+		public void onListItemClick(ListView l, View v, final int position, long id) {
+//			super.onListItemClick(l, v, position, id);
+			List<Dish> basketDishes = RestaurantManager.getBasketDishes();
+			Dish dish = (Dish) getListAdapter().getItem(position);
+			
+			if (!basketDishes.contains(dish)) {
+				basketDishes.add(dish);
+				Toast.makeText(getActivity(), "Added", Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(getActivity(), "Already in the basket", Toast.LENGTH_SHORT).show();					
+			}
+	    }
+		
+	}
 
 }

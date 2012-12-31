@@ -17,7 +17,6 @@ import android.widget.TextView;
 public class ReservationMenuOfChoosenRestaurant extends Activity {
 	static final String RATINGS_DIR = "images/ratings/";
 	
-	private int rest_id = 0;
 	private String rest_name;
 	
 	private TextView tvDesc;
@@ -41,7 +40,6 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
      	ivRating = (ImageView) findViewById(R.id.rest_rating);
      	
 		// Grab the parameters from RestaurantListActivity
-		rest_id = b.getInt("rest_id");
 		tvDesc.setText(b.getString("desc"));
 		tvAddress.setText(b.getString("address"));
 		
@@ -72,7 +70,6 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
      	   		// open next activity with the list of all menu
  				Intent intent = new Intent(ReservationMenuOfChoosenRestaurant.this, MenuList.class);
 				Bundle b = new Bundle();
-				b.putInt("rest_id", rest_id);
 				b.putString("rest_name", rest_name);
 				intent.putExtras(b);
  				

@@ -3,6 +3,10 @@
     
       <item android:id="@+id/Select"
               android:title="Add to basket" />
+      <item android:id="@+id/Remove"
+              android:title="Remove from basket" />
+      <item android:id="@+id/ShowBasket"
+              android:title="Show basket" />
       <item android:id="@+id/Cancel"
             android:title="Cancel" />
      

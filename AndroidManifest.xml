@@ -72,6 +72,11 @@
         </activity>
         
         <activity
+            android:name="BasketActivity"
+            android:label="@string/title_activity_basket" >
+        </activity>
+        
+        <activity
             android:name="tudresden.mobile.reserverest.UserProfile"
             android:label="@string/title_activity_user_profile" >
         </activity>
@@ -81,6 +86,11 @@
             android:label="@string/title_activity_user_profile" >
         </activity>
         
-	</application>
+        <activity
+            android:name="EndActivity"
+            android:label="@string/title_activity_end" >
+        </activity>
+        
+   	</application>
 
 </manifest>

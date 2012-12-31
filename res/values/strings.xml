@@ -3,9 +3,10 @@
 
     <string name="app_name">ReserveRest</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">ReserveMe</string>
+    <string name="title_activity_main">ReserveRest</string>
     <string name="button1">Nearby restaurants</string>
     <string name="button2">Country</string>
+    <string name="btn_reserve">to reservation form</string>
     <string name="spiner1">Dresden</string>
     <string name="profile">Profile</string>
     <string name="about">About</string>
@@ -13,7 +14,7 @@
     <string name="exit">Exit</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_list_restaurants">ListRestaurants</string>
-    <string name="textView1">Please fill the form</string>
+    <string name="tvFillForm">Please fill the form</string>
     <string name="button_to_see_menu">See menu</string>
     <string name="button_to_reservation">Make a table reservation</string>
     <string name="title_activity_reservation_menu_of_choosen_restaurant">ReserveRest</string>
@@ -28,5 +29,7 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_map">Restaurants Map</string>
+    <string name="title_activity_basket">Reserved dishes</string>
+    <string name="title_activity_end">Reservation was successful</string>
     
 </resources>
