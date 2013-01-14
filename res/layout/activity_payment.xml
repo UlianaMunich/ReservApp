@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2D465F"
+    tools:context=".Payment" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:text="Choose one of the methods"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:cropToPadding="true"
+        android:maxWidth="40dp"
+        android:paddingLeft="10dp"
+        android:src="@drawable/VISA , MAESTRO &amp; MASTER CARD" />
+
+</RelativeLayout>

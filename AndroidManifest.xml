@@ -7,10 +7,10 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="16" />
-    
+
     <uses-feature
-  		android:glEsVersion="0x00020000"
-  		android:required="true"/>
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <!-- dimakuv: permissions to use internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,76 +21,71 @@
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <!-- dimakuv: permissions to use GoogleMaps -->
     <permission
-         android:name="tudresden.mobile.reserverest.permission.MAPS_RECEIVE"
-         android:protectionLevel="signature"/>
-    <uses-permission android:name="tudresden.mobile.reserverest.permission.MAPS_RECEIVE"/>
-	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+        android:name="tudresden.mobile.reserverest.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="tudresden.mobile.reserverest.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!-- dimakuv: permissions to cache GoogleMaps' tiles -->
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
-		<meta-data
-		    android:name="com.google.android.maps.v2.API_KEY"
-		    android:value="AIzaSyDDVAOHkSPgPporpMI8q9E5PYsPO2ISML4"/>        
-        
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDDVAOHkSPgPporpMI8q9E5PYsPO2ISML4" />
+
         <activity
             android:name="tudresden.mobile.reserverest.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.RestaurantListActivity"
             android:label="@string/title_activity_list_restaurants" >
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.ReservationMenuOfChoosenRestaurant"
             android:label="@string/title_activity_reservation_menu_of_choosen_restaurant" >
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.Reservation_Form"
             android:label="@string/title_activity_reservation__form" >
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.Menu"
             android:label="@string/title_activity_menu" >
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.MenuList"
             android:label="@string/title_activity_menu_list" >
         </activity>
-        
         <activity
-            android:name="BasketActivity"
+            android:name="tudresden.mobile.reserverest.BasketActivity"
             android:label="@string/title_activity_basket" >
         </activity>
-        
         <activity
             android:name="tudresden.mobile.reserverest.UserProfile"
             android:label="@string/title_activity_user_profile" >
         </activity>
-        
         <activity
-            android:name="MapActivity"
+            android:name="tudresden.mobile.reserverest.MapActivity"
             android:label="@string/title_activity_user_profile" >
         </activity>
-        
         <activity
-            android:name="EndActivity"
+            android:name="tudresden.mobile.reserverest.EndActivity"
             android:label="@string/title_activity_end" >
         </activity>
-        
-   	</application>
+        <activity
+            android:name="tudresden.mobile.reserverest.Payment"
+            android:label="@string/title_activity_payment" >
+        </activity>
+    </application>
 
 </manifest>

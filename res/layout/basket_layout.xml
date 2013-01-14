@@ -4,31 +4,38 @@
     android:layout_height="fill_parent"
     android:background="#2C4965"
     android:orientation="vertical" >
-    
-     <Button
-         android:id="@+id/btnToReserveForm1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:text="@string/btn_reserve"
-         android:textColor="@android:color/background_light" />
-    
+
     <TextView
-         android:id="@+id/textDishesSummary1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:paddingLeft="25dip"
-         android:layout_marginTop="5dip"
-         android:layout_marginBottom="5dip"
-         android:text="Amount of dishes : ???   Total sum : ??? euro"
-         android:textColor="@android:color/background_light"
-         android:textColorHint="@android:color/background_light" />
-    
-	    
-     <ListView
-	    android:id="@+id/lvBasket1"
-	    android:layout_width="fill_parent"
+        android:id="@+id/textDishesSummary1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:animateLayoutChanges="true"
-	    />
-	    
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="15dip"
+        android:paddingLeft="25dip"
+        android:text="Amount of dishes : ???   Total sum : ??? euro"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light" />
+
+    <ListView
+        android:id="@+id/lvBasket1"
+        android:layout_width="wrap_content"
+        android:layout_height="244dp"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
+        android:animateLayoutChanges="true" />
+
+    <Button
+        android:id="@+id/btnToReserveForm1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_reserve"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/pay_dishes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay a bill"
+        android:textColor="@android:color/background_light" />
+
 </LinearLayout>

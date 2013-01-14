@@ -6,7 +6,7 @@
     <string name="title_activity_main">ReserveRest</string>
     <string name="button1">Nearby restaurants</string>
     <string name="button2">Country</string>
-    <string name="btn_reserve">to reservation form</string>
+    <string name="btn_reserve">Reserve a Table</string>
     <string name="spiner1">Dresden</string>
     <string name="profile">Profile</string>
     <string name="about">About</string>
@@ -31,5 +31,6 @@
     <string name="title_activity_map">Restaurants Map</string>
     <string name="title_activity_basket">Reserved dishes</string>
     <string name="title_activity_end">Reservation was successful</string>
-    
+    <string name="title_activity_payment">Payment</string>
+
 </resources>

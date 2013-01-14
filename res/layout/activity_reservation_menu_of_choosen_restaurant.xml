@@ -41,6 +41,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
         android:text="@string/button_to_reservation"
         android:textColor="@android:color/background_light" />
 
@@ -49,6 +51,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
         android:text="@string/button_to_see_menu"
         android:textColor="@android:color/background_light" />
 
