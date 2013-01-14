@@ -12,11 +12,13 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EndActivity extends Activity {
 
@@ -76,10 +78,29 @@ public class EndActivity extends Activity {
 		});
 
     }
-
+  //Options menu   
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_reservation__form, menu);
-        return true;
-    }
+     public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate(R.menu.activity_end, menu);
+         return true;
+     }
+  // handling OptionsMenu event
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+ 	   	case R.id.profile:
+ 	        	// go to UserProfile
+ 	        	Intent mainIntent = new Intent(EndActivity.this, UserProfile.class);
+ 	        	startActivity(mainIntent);
+ 	        	Toast.makeText(getBaseContext(), "Profile", Toast.LENGTH_LONG).show();	
+ 	        	return true;
+         case R.id.exit:  
+         	   Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
+         return true;
+
+        }
+ 	return false;
+    };
+    
 }

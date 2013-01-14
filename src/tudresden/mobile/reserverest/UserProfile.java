@@ -16,15 +16,14 @@ public class UserProfile extends Activity {
 		setContentView(R.layout.layout_user_profile);
 		
 		//button to Activity with different methods of payment
-		payDishes = (Button)findViewById(R.id.pay_dishes);
-	    payDishes.setOnClickListener(new View.OnClickListener() {						
-	    	   	@Override
-				public void onClick(View v) {
-	    	   		// open Google Maps view
-					Intent intent = new Intent(UserProfile.this, Payment.class);
-		        	startActivity(intent);
-				}
-			});
+		//payDishes = (Button)findViewById(R.id.pay_dishes);
+	    //payDishes.setOnClickListener(new View.OnClickListener() {						
+	    //	   	@Override
+		//		public void onClick(View v) {
+		//			Intent intent = new Intent(UserProfile.this, Payment.class);
+		 //       	startActivity(intent);
+		//		}
+		//	});
 	}
 
 	@Override
