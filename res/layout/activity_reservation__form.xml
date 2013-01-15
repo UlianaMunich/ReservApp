@@ -96,14 +96,13 @@
         android:layout_gravity="center"
         android:text="Show basket"
         android:textColor="@android:color/background_light" />
-    
+
     <Button
-        android:id="@+id/btnPushReserve"
+        android:id="@+id/btnPayDishes"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Reserve"
+        android:text="Pay and reserve"
         android:textColor="@android:color/background_light" />
-
+    
 </LinearLayout>

@@ -11,9 +11,11 @@ import tudresden.mobile.reserverest.backend.RestaurantManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -71,6 +73,10 @@ public class EndActivity extends Activity {
         btnToMain.setOnClickListener(new View.OnClickListener() {						
     	   	@Override
 			public void onClick(View v) {
+    	   		// empty the basket
+    	   		RestaurantManager.getReservation().getDishes().clear();
+    	   		RestaurantManager.getBasketDishes().clear();
+    	   		
     	   		// go to Main activity
 				Intent intent = new Intent(EndActivity.this, MainActivity.class);
 	        	startActivity(intent);
@@ -78,29 +84,38 @@ public class EndActivity extends Activity {
 		});
 
     }
-  //Options menu   
-    @Override
-     public boolean onCreateOptionsMenu(Menu menu) {
-         getMenuInflater().inflate(R.menu.activity_end, menu);
-         return true;
-     }
-  // handling OptionsMenu event
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
- 	   	case R.id.profile:
- 	        	// go to UserProfile
- 	        	Intent mainIntent = new Intent(EndActivity.this, UserProfile.class);
- 	        	startActivity(mainIntent);
- 	        	Toast.makeText(getBaseContext(), "Profile", Toast.LENGTH_LONG).show();	
- 	        	return true;
-         case R.id.exit:  
-         	   Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
-         return true;
 
-        }
- 	return false;
-    };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        return true;
+    }
+
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+       switch (item.getItemId()) {
+	   	case R.id.update:
+	   		Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_LONG).show();	
+	        return true;
+	   	case R.id.about:
+	   		LayoutInflater inflater = getLayoutInflater();
+	   		View layout = inflater.inflate(R.layout.toast_center,
+	   		                               (ViewGroup) findViewById(R.id.toast_layout_root));	   		
+	   		Toast t = new Toast(getApplicationContext());
+	   		TextView tv = (TextView) layout.findViewById(R.id.tvToastCenter);
+	   		tv.setText("Authors:\nUliana Andriieshyna & Dmitry Kuvayskiy\n\u00A9 2013");
+	   		t.setView(layout);
+	   		t.setDuration(Toast.LENGTH_LONG);
+	   		t.show();
+	        return true;
+        case R.id.exit:  
+        	Intent intent = new Intent(Intent.ACTION_MAIN);
+        	intent.addCategory(Intent.CATEGORY_HOME);
+        	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        	startActivity(intent);
+        	return true;
+       }
+	return false;
+   };
     
 }

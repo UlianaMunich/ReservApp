@@ -9,11 +9,15 @@ import tudresden.mobile.reserverest.backend.RestaurantManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.os.AsyncTask;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RestaurantListActivity extends Activity {
@@ -100,10 +104,36 @@ public class RestaurantListActivity extends Activity {
 		});
 	}
 	
-	 @Override
+	   @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
 	        getMenuInflater().inflate(R.menu.activity_menu, menu);
 	        return true;
 	    }
 
+	   @Override
+	   public boolean onOptionsItemSelected(MenuItem item) {
+	       switch (item.getItemId()) {
+		   	case R.id.update:
+		   		Toast.makeText(getBaseContext(), "List of restaurants updated", Toast.LENGTH_LONG).show();	
+		        return true;
+		   	case R.id.about:
+		   		LayoutInflater inflater = getLayoutInflater();
+		   		View layout = inflater.inflate(R.layout.toast_center,
+		   		                               (ViewGroup) findViewById(R.id.toast_layout_root));	   		
+		   		Toast t = new Toast(getApplicationContext());
+		   		TextView tv = (TextView) layout.findViewById(R.id.tvToastCenter);
+		   		tv.setText("Authors:\nUliana Andriieshyna & Dmitry Kuvayskiy\n\u00A9 2013");
+		   		t.setView(layout);
+		   		t.setDuration(Toast.LENGTH_LONG);
+		   		t.show();
+		        return true;
+	        case R.id.exit:  
+	        	Intent intent = new Intent(Intent.ACTION_MAIN);
+	        	intent.addCategory(Intent.CATEGORY_HOME);
+	        	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	        	startActivity(intent);
+	        	return true;
+	       }
+		return false;
+	   };
 }

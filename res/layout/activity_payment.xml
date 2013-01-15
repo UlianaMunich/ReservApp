@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/btnPushReserve2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -27,6 +27,6 @@
         android:cropToPadding="true"
         android:maxWidth="40dp"
         android:paddingLeft="10dp"
-        android:src="@drawable/VISA , MAESTRO &amp; MASTER CARD" />
+        android:src="@drawable/payment_types" />
 
 </RelativeLayout>

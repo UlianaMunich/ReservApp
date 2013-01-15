@@ -1,5 +1,0 @@
-! Program simple Android app to use RESTful backend
-
-! List of restaurants (with cities) with their geolocations
-- Check Google Maps API, how to find nearby restaurants
-! Tie Android app to our RESTful backend

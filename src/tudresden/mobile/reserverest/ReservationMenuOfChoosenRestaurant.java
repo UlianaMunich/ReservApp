@@ -8,11 +8,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ReservationMenuOfChoosenRestaurant extends Activity {
 	static final String RATINGS_DIR = "images/ratings/";
@@ -44,7 +48,7 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
 		tvAddress.setText(b.getString("address"));
 		
 		// String imgFilePath = RATINGS_DIR + b.getInt("rating") + ".png";
-		String imgFilePath = RATINGS_DIR + "mock.png";
+		String imgFilePath = RATINGS_DIR + "mock.gif";
 		try {
 			Bitmap bitmap = BitmapFactory.decodeStream(this.getResources().getAssets().open(imgFilePath));
 			ivRating.setImageBitmap(bitmap);
@@ -81,7 +85,34 @@ public class ReservationMenuOfChoosenRestaurant extends Activity {
    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_reservation_menu_of_choosen_restaurant, menu);
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
+
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+       switch (item.getItemId()) {
+	   	case R.id.update:
+	   		Toast.makeText(getBaseContext(), "Restaurant info updated", Toast.LENGTH_LONG).show();	
+	        return true;
+	   	case R.id.about:
+	   		LayoutInflater inflater = getLayoutInflater();
+	   		View layout = inflater.inflate(R.layout.toast_center,
+	   		                               (ViewGroup) findViewById(R.id.toast_layout_root));	   		
+	   		Toast t = new Toast(getApplicationContext());
+	   		TextView tv = (TextView) layout.findViewById(R.id.tvToastCenter);
+	   		tv.setText("Authors:\nUliana Andriieshyna & Dmitry Kuvayskiy\n\u00A9 2013");
+	   		t.setView(layout);
+	   		t.setDuration(Toast.LENGTH_LONG);
+	   		t.show();
+	        return true;
+        case R.id.exit:  
+        	Intent intent = new Intent(Intent.ACTION_MAIN);
+        	intent.addCategory(Intent.CATEGORY_HOME);
+        	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        	startActivity(intent);
+        	return true;
+       }
+	return false;
+   };
 }

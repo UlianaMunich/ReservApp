@@ -228,6 +228,9 @@ public class RestaurantManager {
 	}
 	
 	public static boolean pushReservation() {
+		if (reservation == null)
+			return false;
+		
 		// add dishes from the basket to the reservation, if not added already
 		if (reservation.getDishes() == null && basketDishes != null)
 			reservation.setDishes(basketDishes);

@@ -26,8 +26,10 @@
 
     <uses-permission android:name="tudresden.mobile.reserverest.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!-- dimakuv: permissions to cache GoogleMaps' tiles -->
+    <!-- dimakuv: permission to cache GoogleMaps' tiles -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- dimakuv: permission to read Device ID -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -69,10 +71,6 @@
         <activity
             android:name="tudresden.mobile.reserverest.BasketActivity"
             android:label="@string/title_activity_basket" >
-        </activity>
-        <activity
-            android:name="tudresden.mobile.reserverest.UserProfile"
-            android:label="@string/title_activity_user_profile" >
         </activity>
         <activity
             android:name="tudresden.mobile.reserverest.MapActivity"

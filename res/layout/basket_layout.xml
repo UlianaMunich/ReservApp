@@ -31,11 +31,4 @@
         android:text="@string/btn_reserve"
         android:textColor="@android:color/background_light" />
 
-    <Button
-        android:id="@+id/pay_dishes"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Pay a bill"
-        android:textColor="@android:color/background_light" />
-
 </LinearLayout>
